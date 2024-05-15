@@ -4,14 +4,16 @@ const fs = require("fs");
 const {Circle, Square, Triangle} = require("./lib/shapes");
 const svg = require("./lib/SVG");
 
-
-
-
 const questions = [
     {
         type: "input",
         name: "logoText",
         message: "TEXT: Enter up to (3) Characters:",
+        validate : function (input) {
+            if (input.length > 3) {
+            return 'just 3 characters'}
+            return true;
+        }
     },
     {
         type: "input",
